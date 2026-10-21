@@ -17,7 +17,7 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Java (JDK) Kur
+    - name: Java (JDK 17) Kur
       uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
@@ -26,7 +26,7 @@ jobs:
     - name: Cordova ve Android Platformunu Yükle
       run: |
         npm install -g cordova
-        cordova platform add android
+        cordova platform add android@12.0.1
 
     - name: APK Derle (Release)
       run: |
