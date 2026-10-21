@@ -32,14 +32,19 @@ jobs:
         rm -rf plugins
         cordova platform add android@13.0.0
 
-    - name: APK Derle (Release)
+    - name: APK Derle (Debug & Release)
       run: |
-        cordova build android --release
+        cordova build android
+
+    - name: APK Dosyalarını Listele (Debug amaçlı log)
+      run: |
+        find platforms/android -name "*.apk"
 
     - name: APK Dosyasını Kaydet (Artifact)
       uses: actions/upload-artifact@v4
       with:
         name: CineGrade-Pro-APK
         path: |
-          platforms/android/app/build/outputs/apk/release/*.apk
           platforms/android/app/build/outputs/apk/**/*.apk
+          platforms/android/app/build/outputs/apk/debug/*.apk
+          platforms/android/app/build/outputs/apk/release/*.apk
