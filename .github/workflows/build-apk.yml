@@ -23,9 +23,13 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: Cordova Kur ve Projeyi Hazırla
+    - name: Cordova Kur
+      run: npm install -g cordova
+
+    - name: Temiz Kurulum ve Android Platformunu Ekle
       run: |
-        npm install -g cordova
+        rm -rf platforms
+        rm -rf plugins
         cordova platform add android@13.0.0
 
     - name: APK Derle (Release)
