@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.cinegrade.pro" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>CineGrade Pro</name>
+    <description>Profesyonel Hollywood Renk Derecelendirme ve Sinematik Video Stüdyosu</description>
+    <author email="support@cinegrade.com" href="https://github.com/kullaniciadin/cinegrade">CineGrade Team</author>
+    
+    <content src="index.html" />
+    
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <access origin="*" />
+    
+    <platform name="android">
+        <allow-intent href="market:*" />
+        
+        <!-- Android Depolama ve Medya İzinleri -->
+        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest">
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+            <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+            <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+        </edit-config>
+
+        <preference name="AndroidPersistentStorage" value="Local" />
+        <preference name="Orientation" value="sensor" />
+        <preference name="Fullscreen" value="false" />
+        <preference name="KeepRunning" value="true" />
+        <preference name="AndroidInsecureFileModeOverridden" value="true" />
+        
+        <!-- Uygulama İkonu Yolu -->
+        <icon src="res/icon/icon.png" />
+    </platform>
+    
+    <engine name="android" spec="latest" />
+</widget>

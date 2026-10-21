@@ -1,0 +1,28 @@
+{
+  "name": "cinegrade-pro",
+  "version": "1.0.0",
+  "description": "Sinematik Renk ve LUT Stüdyosu",
+  "main": "index.js",
+  "scripts": {
+    "build:android": "cordova build android --release"
+  },
+  "keywords": [
+    "cordova",
+    "video",
+    "lut",
+    "color-grading",
+    "4k"
+  ],
+  "author": "Fikret Kurt",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "cordova-android": "^12.0.0"
+  },
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {}
+  }
+}
