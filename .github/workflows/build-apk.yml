@@ -1,0 +1,39 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Repo'yu Kopyala
+      uses: actions/checkout@v4
+
+    - name: Node.js Kur
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Java (JDK) Kur
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+
+    - name: Cordova ve Android Platformunu Yükle
+      run: |
+        npm install -g cordova
+        cordova platform add android
+
+    - name: APK Derle (Release)
+      run: |
+        cordova build android --release
+
+    - name: APK Dosyasını Kaydet (Artifact)
+      uses: actions/upload-artifact@v4
+      with:
+        name: CineGrade-Pro-APK
+        path: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
